@@ -1,6 +1,8 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import ls from 'local-storage'
+// I Called this file "ClassComp" because I went back and forth between trying to get the app to work through
+// class components or through hooks (on another file I had called "Hooks")
 class ClassComp extends React.Component{
     constructor(){
         super()
