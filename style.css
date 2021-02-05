@@ -1,0 +1,37 @@
+
+textarea{
+    outline: none;
+    resize: none;
+    border: 5px black solid;
+}
+.click1{
+    background-color: hotpink;
+    border-radius: 12px;
+    border: black 3px solid;
+    padding: 5px;
+    margin: 2px;
+    font-weight: bold;
+    color: white;
+}
+.click2{
+    background-color: blue;
+    border-radius: 12px;
+    border: black 3px solid;
+    padding: 5px;
+    margin: 2px;
+    font-weight: bold;
+    color: white;
+}
+body{
+    background-color:#EEE8AA
+}
+#head{
+    margin-bottom: 50px;
+  }
+
+.buttonText{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
