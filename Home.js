@@ -7,8 +7,8 @@ function Home(){
     return(
         <div>
            <h1 id="head">Welcome to NoteHolder</h1>
-           <button className="click1">
-               <Link to="/classcomp" className="buttonText">
+            <button className="click2">
+            <Link to="/test" className="buttonText">
                    New Note
                </Link>
             </button>
