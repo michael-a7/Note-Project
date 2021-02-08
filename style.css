@@ -35,3 +35,15 @@ body{
     font-weight: bold;
     color: white;
 }
+.modal{
+    width: 200px;
+    height: 200px;
+    position: center;
+    margin: 300px;
+    border: black 5px solid;
+    outline: none;
+}
+.modalContent{
+    background-color: green;
+
+}
