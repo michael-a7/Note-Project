@@ -1,8 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import ls from 'local-storage'
-// I Called this file "ClassComp" because I went back and forth between trying to get the app to work through
-// class components or through hooks (on another file I had called "Hooks")
 class ClassComp extends React.Component{
     constructor(){
         super()
@@ -20,14 +18,16 @@ class ClassComp extends React.Component{
         })
     }
     handleSubmit(event){
+        const name = "name"
         const savedText = this.state.newText;
-        localStorage.setItem('Page', savedText);
+        const data = [name, savedText]
+        localStorage.setItem('Page', JSON.stringify(data));
 
     }
     handleLoad(event) {
-        const data =(localStorage.getItem('Page'))
+        const Loaded =(localStorage.getItem(JSON.parse('Page')))
          this.setState(
-            {newText: data}
+            {newText: Loaded[1]}
          )
     }
     render(){
