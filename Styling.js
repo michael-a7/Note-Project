@@ -3,7 +3,7 @@ import './style.css'
 function Stylesheet(){
     return(
         <div>
-            <h1 className="important">Styly wiley</h1>
+            <h1 className="important">Styling test</h1>
         </div>
     )
 }
