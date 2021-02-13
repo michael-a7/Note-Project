@@ -6,6 +6,7 @@ function Test(){
     const [text,newText]=useState("")
     const [fileName, myFile] = useState("")
     const [Open, setWindow] = useState(false)
+    var saveArray = [];
     function handleChange(event){
         newText(event.target.value);
     }
@@ -17,7 +18,9 @@ function Test(){
     }
     function handleSubmit(event){
         const data = [fileName, text]
+        saveArray.push(data)
         localStorage.setItem(fileName,JSON.stringify(data))
+        localStorage.setItem("Saves",JSON.stringify(saveArray))
     }
     function handleLoading(event){
         const item = JSON.parse(localStorage.getItem(fileName));
