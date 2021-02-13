@@ -17,9 +17,9 @@ function Test(){
         setWindow(!Open);
     }
     function handleSubmit(event){
-        const data = {fileName, text}
+        const id = new Date().valueOf()
+        const data = {fileName, text, id}
         const saveUpdate = saveArray.push(data)
-        saveArray = saveUpdate
         localStorage.setItem(fileName,JSON.stringify(data))
         localStorage.setItem("saves",JSON.stringify(saveUpdate))
 
