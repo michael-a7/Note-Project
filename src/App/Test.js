@@ -30,6 +30,10 @@ function Test(){
         newText(item[1])
         setWindow(!Open);
     }
+    //for my own purposes
+    function wipeSave(event){
+        updateSave([])
+    }
     return(
         <div>
             <div><createNote /></div>            
@@ -62,6 +66,7 @@ function Test(){
                         </div>
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
+                <button className="click1" onClick = {wipeSave}>Clear</button>
         </div>
     )
 }
