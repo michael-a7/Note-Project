@@ -17,12 +17,16 @@ function Test(){
         setWindow(!Open);
     }
     function handleSubmit(event){
-        const data = [fileName, text]
-        saveArray.push(data)
+        const data = {fileName, text}
+        const saveUpdate = saveArray.push(data)
+        saveArray = saveUpdate
         localStorage.setItem(fileName,JSON.stringify(data))
-        localStorage.setItem("Saves",JSON.stringify(saveArray))
+        localStorage.setItem("saves",JSON.stringify(saveUpdate))
+
+        console.log(saveArray)
     }
     function handleLoading(event){
+        //Loading work
         const item = JSON.parse(localStorage.getItem(fileName));
         newText(item[1])
         setWindow(!Open);
