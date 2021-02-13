@@ -1,0 +1,61 @@
+
+textarea{
+    outline: none;
+    resize: none;
+    border: 5px black solid;
+}
+input{
+    width: 145px;
+}
+.click1{
+    background-color: hotpink;
+    border-radius: 12px;
+    border: black 3px solid;
+    padding: 5px;
+    font-weight: bold;
+    color: white;
+}
+.click2{
+    background-color: blue;
+    border-radius: 12px;
+    border: black 3px solid;
+    padding: 5px;
+    margin: 2px;
+    font-weight: bold;
+    color: white;
+}
+body{
+    background-color:#EEE8AA
+}
+#head{
+    margin-bottom: 50px;
+  }
+
+.buttonText{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+.modal{
+    width: 180px;
+    height: 80px;
+    position: center;
+    margin: 300px;
+    border: black 5px solid;
+    outline: none;
+    background-color: orange;
+}
+.modalContent{
+    margin-top: 15px;
+    margin-left: 15px
+}
+.savedNote{
+    border: black 5px solid;
+    background-color: white;
+    margin: 5px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    
+}
