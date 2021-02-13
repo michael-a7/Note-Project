@@ -62,7 +62,7 @@ function Test(){
                         </form>
                         <button className="click2" onClick={handleSubmit}>Save</button>
                         <button className="click1" onClick={handleLoading}> Load</button>
-                        <button className="click2" onClick = {handleModal}>Close</button>
+                        <button className="click2" onClick = {handleModal}>Close</button>                        
                         </div>
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
