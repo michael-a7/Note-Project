@@ -68,3 +68,6 @@ body{
     text-align: center;
     
 }
+.displayNotes{
+    display: grid;
+}

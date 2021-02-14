@@ -30,6 +30,18 @@ export function Test(){
         newText(item.text)
         setWindow(!Open);
     }
+   
+    function Mapping(){
+        const Comp = saveArray.map(data =>  <NoteCard file="File 1" text="Sample text"/>)
+    }
+    function NoteCard(props){
+        return(
+            <div className="savedNote">
+                <h3>{props.file}</h3>
+                <p>{props.text}</p>
+            </div>
+        )
+        }
     //for my own purposes
     function wipeSave(event){
         updateSave([])
@@ -67,6 +79,9 @@ export function Test(){
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click3" onClick = {wipeSave}>Clear</button>
+                <div className="displayNotes">
+                    <Mapping />
+                </div>
         </div>
     )
 }
