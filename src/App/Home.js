@@ -4,7 +4,7 @@ import ls from 'local-storage'
 import ClassComp from '../ClassComp'
 import Modal from 'react-modal'
 import Boxes from './Boxes'
-function Home(){
+export default function Home(){
     const [Open, setWindow] = useState(false)
     const [fileName, myFile] = useState("")
     function handleModal(){
@@ -40,4 +40,3 @@ function Home(){
         </div>
     )
 }
-export default Home
