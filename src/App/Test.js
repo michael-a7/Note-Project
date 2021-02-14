@@ -1,3 +1,4 @@
+//TODO: Change file name and update throughout app
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import ls from 'local-storage'
@@ -65,7 +66,7 @@ function Test(){
                         </div>
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
-                <button className="click1" onClick = {wipeSave}>Clear</button>
+                <button className="click3" onClick = {wipeSave}>Clear</button>
         </div>
     )
 }

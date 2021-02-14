@@ -24,6 +24,15 @@ input{
     font-weight: bold;
     color: white;
 }
+.click3{
+    background-color: red;
+    border-radius: 12px;
+    border: black 3px solid;
+    padding: 5px;
+    margin: 2px;
+    font-weight: bold;
+    color: white;
+}
 body{
     background-color:#EEE8AA
 }
