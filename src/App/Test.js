@@ -1,11 +1,13 @@
+//TODO: Change file name and update throughout app
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import ls from 'local-storage'
 import Modal from 'react-modal';
-function Test(){
+export function Test(){
     const [text,newText]=useState("")
     const [fileName, myFile] = useState("")
     const [Open, setWindow] = useState(false)
+    const [saveArray, updateSave] = useState([])
     function handleChange(event){
         newText(event.target.value);
     }
@@ -16,13 +18,21 @@ function Test(){
         setWindow(!Open);
     }
     function handleSubmit(event){
-        const data = [fileName, text]
+        const id = new Date().valueOf()
+        const data = {fileName, text, id}
+        saveArray.push(data)
+        localStorage.setItem("Save List",JSON.stringify(saveArray))
         localStorage.setItem(fileName,JSON.stringify(data))
+
     }
     function handleLoading(event){
         const item = JSON.parse(localStorage.getItem(fileName));
-        newText(item[1])
+        newText(item.text)
         setWindow(!Open);
+    }
+    //for my own purposes
+    function wipeSave(event){
+        updateSave([])
     }
     return(
         <div>
@@ -52,10 +62,11 @@ function Test(){
                         </form>
                         <button className="click2" onClick={handleSubmit}>Save</button>
                         <button className="click1" onClick={handleLoading}> Load</button>
-                        <button className="click2" onClick = {handleModal}>Close</button>
+                        <button className="click2" onClick = {handleModal}>Close</button>                        
                         </div>
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
+                <button className="click3" onClick = {wipeSave}>Clear</button>
         </div>
     )
 }
