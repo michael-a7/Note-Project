@@ -3,11 +3,11 @@ import {Link} from "react-router-dom";
 import ls from 'local-storage'
 import ClassComp from '../ClassComp'
 import Modal from 'react-modal'
-import Boxes from './Components/Boxes'
+import Boxes from './Boxes'
 function Home(){
     const [Open, setWindow] = useState(false)
     const [fileName, myFile] = useState("")
-    function handleModal(event){
+    function handleModal(){
         setWindow(!Open);
     }
     function handleFileChange(event){
