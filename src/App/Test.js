@@ -7,7 +7,6 @@ function Test(){
     const [fileName, myFile] = useState("")
     const [Open, setWindow] = useState(false)
     const [saveArray, updateSave] = useState([])
-    const[loadedFile, getLoad] = useState("")
     function handleChange(event){
         newText(event.target.value);
     }
@@ -26,9 +25,9 @@ function Test(){
 
     }
     function handleLoading(event){
-        const item = JSON.parse(localStorage.getItem("Save List"));
-        newText(item[0])
-        setWindow(!Open)
+        const item = JSON.parse(localStorage.getItem(fileName));
+        newText(item.text)
+        setWindow(!Open);
     }
     //for my own purposes
     function wipeSave(event){
