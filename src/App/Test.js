@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import ls from 'local-storage'
 import Modal from 'react-modal';
-function Test(){
+export function Test(){
     const [text,newText]=useState("")
     const [fileName, myFile] = useState("")
     const [Open, setWindow] = useState(false)
