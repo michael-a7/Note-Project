@@ -6,7 +6,7 @@ function Test(){
     const [text,newText]=useState("")
     const [fileName, myFile] = useState("")
     const [Open, setWindow] = useState(false)
-    const [saveArray, updateSave] = useState([null])
+    const [saveArray, updateSave] = useState({})
     function handleChange(event){
         newText(event.target.value);
     }
@@ -16,21 +16,15 @@ function Test(){
     function handleModal(event){
         setWindow(!Open);
     }
-    function addtoArray(){
-        updateSave([...saveArray,"bananas"])
-        localStorage.setItem("save",JSON.stringify(saveArray))
-
-    }
     function handleSubmit(event){
         const id = new Date().valueOf()
         const data = {fileName, text, id}
-        updateSave([saveArray,data])
+        saveArray.push(data)
         localStorage.setItem(fileName,JSON.stringify(data))
         localStorage.setItem("save",JSON.stringify(saveArray))
 
     }
     function handleLoading(event){
-        //Loading work
         const item = JSON.parse(localStorage.getItem(fileName));
         newText(item[1])
         setWindow(!Open)
@@ -72,7 +66,6 @@ function Test(){
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click1" onClick = {wipeSave}>Clear</button>
-                <button className="click2" onClick = {addtoArray}>Append</button>
         </div>
     )
 }
