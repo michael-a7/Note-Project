@@ -28,7 +28,7 @@ export function Test(){
     function handleLoading(event){
         const item = JSON.parse(localStorage.getItem(fileName));
         newText(item.text)
-        setWindow(!Open);
+        setWindow(false);
     }
     function wipeSave(event){
         updateSave([])
@@ -67,7 +67,7 @@ export function Test(){
                 <button className="click3" onClick = {wipeSave}>Clear</button>
                 <div className="displayNotes">
                     {saveArray.map(note=>(
-                        <div className="savedNote">
+                        <div onClick={handleLoading} className="savedNote">
                             <h3 className="noteHeader">{note.fileName}</h3>
                             <p>{note.text}</p>
                         </div>

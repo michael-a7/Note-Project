@@ -67,6 +67,7 @@ body{
     height: 150px;
     text-align: center;
     overflow: hidden;
+    cursor: pointer;
 }
 .displayNotes{
     display: grid;
