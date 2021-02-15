@@ -65,10 +65,10 @@ export function Test(){
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click3" onClick = {wipeSave}>Clear</button>
-                <div>
+                <div className="displayNotes">
                     {saveArray.map(note=>(
                         <div className="savedNote">
-                            <h3>{note.fileName}</h3>
+                            <h3 className="noteHeader">{note.fileName}</h3>
                             <p>{note.text}</p>
                         </div>
                     ))}
