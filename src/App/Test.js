@@ -1,9 +1,9 @@
 //TODO: Change file name and update throughout app
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
-import ls from 'local-storage'
 import Modal from 'react-modal';
 export function Test(){
+    //Set
     const [text,newText]=useState("")
     const [fileName, myFile] = useState("")
     const [Open, setWindow] = useState(false)
@@ -23,32 +23,18 @@ export function Test(){
         saveArray.push(data)
         localStorage.setItem("Save List",JSON.stringify(saveArray))
         localStorage.setItem(fileName,JSON.stringify(data))
-
+        setWindow(!Open);
     }
     function handleLoading(event){
         const item = JSON.parse(localStorage.getItem(fileName));
         newText(item.text)
         setWindow(!Open);
     }
-   
-    function Mapping(){
-        const Comp = saveArray.map(data =>  <NoteCard file="File 1" text="Sample text"/>)
-    }
-    function NoteCard(props){
-        return(
-            <div className="savedNote">
-                <h3>{props.file}</h3>
-                <p>{props.text}</p>
-            </div>
-        )
-        }
-    //for my own purposes
     function wipeSave(event){
         updateSave([])
     }
     return(
-        <div>
-            <div><createNote /></div>            
+        <div>        
             <form>
                     <textarea
                         value={text}
@@ -79,8 +65,13 @@ export function Test(){
                 </Modal>
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click3" onClick = {wipeSave}>Clear</button>
-                <div className="displayNotes">
-                    <Mapping />
+                <div>
+                    {saveArray.map(note=>(
+                        <div className="savedNote">
+                            <h3>{note.fileName}</h3>
+                            <p>{note.text}</p>
+                        </div>
+                    ))}
                 </div>
         </div>
     )
