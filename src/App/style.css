@@ -34,7 +34,7 @@ input{
     color: white;
 }
 body{
-    background-color:#41ced8
+    background-color: orange;
 }
 #head{
     margin-bottom: 50px;
@@ -62,7 +62,7 @@ body{
 }
 .newNote{
     border: black 5px solid;
-    background-color: pink;
+    background-color: yellow;
     margin: 2px;
     width: 300px;
     height: 150px;
