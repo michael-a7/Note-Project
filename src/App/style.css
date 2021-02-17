@@ -34,10 +34,11 @@ input{
     color: white;
 }
 body{
-    background-color:#EEE8AA
+    background-color:#41ced8
 }
 #head{
     margin-bottom: 50px;
+    text-align: center;
   }
 
 .buttonText{
@@ -58,6 +59,19 @@ body{
 .modalContent{
     margin-top: 15px;
     margin-left: 15px
+}
+.newNote{
+    border: black 5px solid;
+    background-color: pink;
+    margin: 2px;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+.newNoteText{
+    color: black;
 }
 .savedNote{
     border: black 5px solid;
