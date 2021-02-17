@@ -18,12 +18,16 @@ export function NotePad(){
         setWindow(!open);
     }
     function handleSubmit(event){
+        if(fileName===""){
+            alert("Please enter valid file name.")
+        }
+        else{
         const id = new Date().valueOf()
         const data = {fileName, text, id}
         saveArray.push(data)
         localStorage.setItem("Save List",JSON.stringify(saveArray))
         localStorage.setItem(fileName,JSON.stringify(data))
-        setWindow(!open);
+        setWindow(!open);}
     }
     function handleLoading(event){
         const item = JSON.parse(localStorage.getItem(fileName));
