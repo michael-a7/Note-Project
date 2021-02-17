@@ -62,9 +62,17 @@ body{
 .savedNote{
     border: black 5px solid;
     background-color: white;
-    margin: 5px;
-    width: 200px;
-    height: 100px;
+    margin: 2px;
+    width: 300px;
+    height: 150px;
     text-align: center;
-    
+    overflow: hidden;
+    cursor: pointer;
+}
+.displayNotes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr
+}
+.noteHeader{
+    line-height: 0px;
 }
