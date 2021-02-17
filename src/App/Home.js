@@ -5,10 +5,10 @@ import ClassComp from '../ClassComp'
 import Modal from 'react-modal'
 import Boxes from './Boxes'
 export default function Home(){
-    const [Open, setWindow] = useState(false)
+    const [open, setOpen] = useState(false)
     const [fileName, myFile] = useState("")
     function handleModal(){
-        setWindow(!Open);
+        setOpen(!open);
     }
     function handleFileChange(event){
         myFile(event.target.value);
@@ -17,12 +17,12 @@ export default function Home(){
         <div>
            <h1 id="head">Welcome to NoteHolder</h1>
             <button className="click1">
-            <Link to="/test" className="buttonText">
+            <Link to="/notes" className="buttonText">
                    New Note
                </Link>
             </button>
             <Modal
-                isOpen = {Open}
+                isOpen = {open}
                 onRequestClose = {handleModal}
                 className="modal">
                     <file>

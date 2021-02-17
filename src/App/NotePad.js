@@ -2,20 +2,20 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import Modal from 'react-modal';
-export function Test(){
+export function NotePad(){
     //Set
-    const [text,newText]=useState("")
+    const [text,setText]=useState("")
     const [fileName, myFile] = useState("")
-    const [Open, setWindow] = useState(false)
+    const [open, setWindow] = useState(false)
     const [saveArray, updateSave] = useState([])
     function handleChange(event){
-        newText(event.target.value);
+        setText(event.target.value);
     }
     function handleFileChange(event){
         myFile(event.target.value);
     }
     function handleModal(event){
-        setWindow(!Open);
+        setWindow(!open);
     }
     function handleSubmit(event){
         const id = new Date().valueOf()
@@ -23,11 +23,11 @@ export function Test(){
         saveArray.push(data)
         localStorage.setItem("Save List",JSON.stringify(saveArray))
         localStorage.setItem(fileName,JSON.stringify(data))
-        setWindow(!Open);
+        setWindow(!open);
     }
     function handleLoading(event){
         const item = JSON.parse(localStorage.getItem(fileName));
-        newText(item.text)
+        setText(item.text)
         setWindow(false);
     }
     function wipeSave(event){
@@ -51,7 +51,7 @@ export function Test(){
                         Save/Load
                 </button>
                 <Modal
-                isOpen = {Open}
+                isOpen = {open}
                 onRequestClose = {handleModal}
                 className="modal">
                     <div className="modalContent">
@@ -76,4 +76,4 @@ export function Test(){
         </div>
     )
 }
-export default Test;
+export default NotePad;
