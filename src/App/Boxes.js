@@ -11,10 +11,10 @@ function Boxes(){
                     </div>
                 </Link>
                 {saveData.map(note=>(
-                        <div className="savedNote">
-                            <h3 className="noteHeader">{note.fileName}</h3>
-                            <p>{note.text}</p>
-                        </div>
+                    <div className="savedNote">
+                        <h3 className="noteHeader">{note.fileName}</h3>
+                        <p>{note.text}</p>
+                    </div>
                     ))}
             </div>
         </div>
