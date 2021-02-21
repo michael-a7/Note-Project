@@ -28,7 +28,8 @@ export function NotePad(){
         }
         else{
         const id = new Date().valueOf()
-        const data = {fileName, text, id}
+        const name = fileName
+        const data = {name, text, id}
         saveArray.push(data)
         localStorage.setItem("Save List",JSON.stringify(saveArray))
         localStorage.setItem(fileName,JSON.stringify(data))
@@ -39,8 +40,9 @@ export function NotePad(){
     // Creates an alert for empty save names
 
     function handleLoading(event){
-        const item = JSON.parse(localStorage.getItem(fileName));
-        setText(item.text)
+        const array = JSON.parse(localStorage.getItem("Save List"));
+        let file = array.find(({name})=>name == fileName)
+        setText(file.text)
         setWindow(false);
     }
     function wipeSave(event){
@@ -89,7 +91,7 @@ export function NotePad(){
                 <div className="displayNotes">
                     {saveArray.map(note=>(
                         <div onClick={handleLoading} className="savedNote">
-                            <h3 className="noteHeader">{note.fileName}</h3>
+                            <h3 className="noteHeader">{note.name}</h3>
                             <p>{note.text}</p>
                         </div>
                     ))}

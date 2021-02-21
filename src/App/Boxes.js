@@ -12,7 +12,7 @@ function Boxes(){
                 </Link>
                 {saveData.map(note=>(
                     <div className="savedNote">
-                        <h3 className="noteHeader">{note.fileName}</h3>
+                        <h3 className="noteHeader">{note.name}</h3>
                         <p>{note.text}</p>
                     </div>
                     ))}
