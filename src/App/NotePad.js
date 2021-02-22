@@ -1,9 +1,8 @@
 //TODO: Change file name and update throughout app
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 import Modal from 'react-modal';
 export function NotePad(){
-    //Set
     const [text,setText]=useState("")
     const [fileName, myFile] = useState("")
     const [open, setWindow] = useState(false)
@@ -32,7 +31,6 @@ export function NotePad(){
         const data = {name, text, id}
         saveArray.push(data)
         localStorage.setItem("Save List",JSON.stringify(saveArray))
-        localStorage.setItem(fileName,JSON.stringify(data))
         setWindow(!open);}
     }
     // Saves objects of name, text, and id to an array in localstorage
@@ -42,6 +40,7 @@ export function NotePad(){
     function handleLoading(event){
         const array = JSON.parse(localStorage.getItem("Save List"));
         let file = array.find(({name})=>name == fileName)
+        //TODO: create error for invalid load
         setText(file.text)
         setWindow(false);
     }
@@ -88,14 +87,6 @@ export function NotePad(){
 
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click3" onClick = {wipeSave}>Clear</button>
-                <div className="displayNotes">
-                    {saveArray.map(note=>(
-                        <div onClick={handleLoading} className="savedNote">
-                            <h3 className="noteHeader">{note.name}</h3>
-                            <p>{note.text}</p>
-                        </div>
-                    ))}
-                </div>
         </div>
     )
 }

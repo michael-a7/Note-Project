@@ -34,7 +34,7 @@ input{
     color: white;
 }
 body{
-    background-color: orange;
+    background-color: rgb(41, 155, 207);
 }
 #head{
     margin-bottom: 50px;
@@ -54,7 +54,7 @@ body{
     margin: 300px;
     border: black 5px solid;
     outline: none;
-    background-color: orange;
+    background-color: rgb(104, 14, 122);
 }
 .modalContent{
     margin-top: 15px;
