@@ -23,7 +23,7 @@ export function NotePad(){
 
     function handleSubmit(event){
         if(fileName===""){
-            alert("Please enter valid file name.")
+            alert("Please enter valid file name!")
         }
         else{
         const id = new Date().valueOf()
@@ -40,10 +40,17 @@ export function NotePad(){
     function handleLoading(event){
         const array = JSON.parse(localStorage.getItem("Save List"));
         let file = array.find(({name})=>name == fileName)
-        //TODO: create error for invalid load
-        setText(file.text)
-        setWindow(false);
+        if(file){
+            setText(file.text)
+            setWindow(false);
+        }
+        else{
+            alert("File name does not exist!")
+        }
+
     }
+
+
     function wipeSave(event){
         updateSave([])
     }
