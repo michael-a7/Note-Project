@@ -90,3 +90,12 @@ body{
 .noteHeader{
     line-height: 0px;
 }
+.initialNote{
+    border: black 5px solid;
+    background-color: orange;
+    margin: 2px;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    overflow: hidden;
+}
