@@ -71,7 +71,11 @@ export function NotePad(){
     function handleLoading(event){
         ///Load Error if there's no SaveArray
         const array = JSON.parse(localStorage.getItem("Save List"));
-        let file = array.find(({name})=>name == fileName)
+        if(array===null)
+        {
+            alert("File name does not exist!")
+        }
+        else{let file = array.find(({name})=>name == fileName)
         if(file){
             setText(file.text)
             setWindow(false);
@@ -79,7 +83,7 @@ export function NotePad(){
         else{
             alert("File name does not exist!")
         }
-
+        }
     }
 
 
