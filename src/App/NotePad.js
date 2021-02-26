@@ -1,4 +1,5 @@
-//TODO: Change file name and update throughout app
+//Something is off about same save/load. Check tomorrow
+//Consider finding a way to delete the original file with a particular name from the list of saved 
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 import Modal from 'react-modal';
@@ -19,25 +20,56 @@ export function NotePad(){
     function handleModal(event){
         setWindow(!open);
     }
-    // Opens Modal for saving and loading
 
     function handleSubmit(event){
         if(fileName===""){
+            //Case 1: Empty file name
+            //Works
             alert("Please enter valid file name!")
         }
         else{
-        const id = new Date().valueOf()
-        const name = fileName
-        const data = {name, text, id}
-        saveArray.push(data)
-        localStorage.setItem("Save List",JSON.stringify(saveArray))
-        setWindow(!open);}
+            const array = JSON.parse(localStorage.getItem("Save List"));
+            if(array){
+                let file = array.find(({name})=>name == fileName)
+                if(file){
+                    //Case 2: Found saved file with same name; overwrite file
+                    const name = file.name
+                    saveArray.splice(file)
+                    const id = new Date().valueOf()
+                    const data = {name, text, id}
+                    saveArray.push(data)
+                    localStorage.setItem("Save List",JSON.stringify(saveArray))
+                    setWindow(!open);
+                    }
+                else{
+                       //Case 3: No saved file with entered name; Create file
+                       //Works
+                    const id = new Date().valueOf()
+                    const name = fileName
+                    const data = {name, text, id}
+                    saveArray.push(data)
+                    localStorage.setItem("Save List",JSON.stringify(saveArray))
+                    setWindow(!open);
+                    }
+            }    
+            else{
+                //Case 4: Array does not exist, create first save in array
+                //Works
+                const id = new Date().valueOf()
+                const name = fileName
+                const data = {name, text, id}
+                saveArray.push(data)
+                localStorage.setItem("Save List",JSON.stringify(saveArray))
+                setWindow(!open);
+        }    
+    }
     }
     // Saves objects of name, text, and id to an array in localstorage
     // Currently also saves File name/text pairs as their own object items in local storage
     // Creates an alert for empty save names
 
     function handleLoading(event){
+        ///Load Error if there's no SaveArray
         const array = JSON.parse(localStorage.getItem("Save List"));
         let file = array.find(({name})=>name == fileName)
         if(file){
