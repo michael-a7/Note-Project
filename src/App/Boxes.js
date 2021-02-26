@@ -2,6 +2,12 @@ import {React,useState} from 'react';
 import {Link} from 'react-router-dom';
 function Boxes(){
     const saveData = JSON.parse(localStorage.getItem("Save List"))
+    let map = saveData.map(note=>(
+        <div className="savedNote">
+            <h3 className="noteHeader">{note.name}</h3>
+            <p>{note.text}</p>
+        </div>
+        ))
     return(
         <div>
             <div className="displayNotes">
@@ -10,12 +16,7 @@ function Boxes(){
                         <h3 style={{color:"black"}}>New Note</h3>
                     </div>
                 </Link>
-                {saveData.map(note=>(
-                    <div className="savedNote">
-                        <h3 className="noteHeader">{note.name}</h3>
-                        <p>{note.text}</p>
-                    </div>
-                    ))}
+                {map}
             </div>
         </div>
     )
