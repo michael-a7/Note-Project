@@ -14,7 +14,7 @@ export function NotePad(){
     function handleChange(event){
         setText(event.target.value);
     }
-    useEffect(()=>{localStorage.setItem("Complete Save", JSON.stringify(saveArray))});
+    useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
     function handleFileChange(event){
         myFile(event.target.value);
     }
@@ -41,7 +41,6 @@ export function NotePad(){
                     const id = new Date().valueOf()
                     const data = {name, text, id}
                     saveArray.push(data)
-                    localStorage.setItem("Save List",JSON.stringify(saveArray))
                     setWindow(!open);
                     }
                 else{
@@ -51,7 +50,6 @@ export function NotePad(){
                     const name = fileName
                     const data = {name, text, id}
                     saveArray.push(data)
-                    localStorage.setItem("Save List",JSON.stringify(saveArray))
                     setWindow(!open);
                     }
             }    
@@ -62,7 +60,6 @@ export function NotePad(){
                 const name = fileName
                 const data = {name, text, id}
                 saveArray.push(data)
-                localStorage.setItem("Save List",JSON.stringify(saveArray))
                 setWindow(!open);
         }    
     }
