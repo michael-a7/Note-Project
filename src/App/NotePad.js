@@ -1,6 +1,6 @@
 //Something is off about same save/load. Check tomorrow
 //Consider finding a way to delete the original file with a particular name from the list of saved 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import Modal from 'react-modal';
 import Boxes from './Boxes'
@@ -9,19 +9,25 @@ export function NotePad(){
     const [fileName, myFile] = useState("")
     const [open, setWindow] = useState(false)
     const [saveArray, updateSave] = useState([])
-    function handleChange(event){
-        setText(event.target.value);
-    }
-
+    useEffect(()=>{
+        const saved = localStorage.getItem("Save List");
+        if (saved){
+            updateSave(JSON.parse(saved))
+        }
+    },[])
+    useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
     function handleFileChange(event){
         myFile(event.target.value);
+    }
+    function handleChange(event){
+        setText(event.target.value);
     }
     // Changes value of text in textbox
 
     function handleModal(event){
         setWindow(!open);
     }
-
+   
     function handleSubmit(event){
         if(fileName===""){
             //Case 1: Empty file name
@@ -39,7 +45,6 @@ export function NotePad(){
                     const id = new Date().valueOf()
                     const data = {name, text, id}
                     saveArray.push(data)
-                    localStorage.setItem("Save List",JSON.stringify(saveArray))
                     setWindow(!open);
                     }
                 else{
@@ -49,7 +54,6 @@ export function NotePad(){
                     const name = fileName
                     const data = {name, text, id}
                     saveArray.push(data)
-                    localStorage.setItem("Save List",JSON.stringify(saveArray))
                     setWindow(!open);
                     }
             }    
@@ -60,7 +64,6 @@ export function NotePad(){
                 const name = fileName
                 const data = {name, text, id}
                 saveArray.push(data)
-                localStorage.setItem("Save List",JSON.stringify(saveArray))
                 setWindow(!open);
         }    
     }
