@@ -9,14 +9,12 @@ export function NotePad(){
     const [fileName, myFile] = useState("")
     const [open, setWindow] = useState(false)
     const [saveArray, updateSave] = useState([])
-
-
-    function handleChange(event){
-        setText(event.target.value);
-    }
     useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
     function handleFileChange(event){
         myFile(event.target.value);
+    }
+    function handleChange(event){
+        setText(event.target.value);
     }
     // Changes value of text in textbox
 
