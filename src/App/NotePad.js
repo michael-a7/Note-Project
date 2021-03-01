@@ -9,6 +9,12 @@ export function NotePad(){
     const [fileName, myFile] = useState("")
     const [open, setWindow] = useState(false)
     const [saveArray, updateSave] = useState([])
+    useEffect(()=>{
+        const saved = localStorage.getItem("Save List");
+        if (saved){
+            updateSave(JSON.parse(saved))
+        }
+    },[])
     useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
     function handleFileChange(event){
         myFile(event.target.value);
