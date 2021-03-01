@@ -2,10 +2,8 @@ import {React,useState} from 'react';
 import {Link} from 'react-router-dom';
 function Boxes(){
     const saveData = JSON.parse(localStorage.getItem("Save List"))
-    
-    //WORK IN PROGRESS saves data to localstorage when box clicked, to be added when notepad loads
-    function Storage(a){
-        localStorage.setItem("To Load",JSON.stringify(a))
+    function LoadPrep(){
+        console.log("Hi")
     }
     function Conditional(){
         if(saveData===null){
@@ -16,12 +14,15 @@ function Boxes(){
             )
         } else{
         return(saveData.map(note=>(
+        
         <Link to="/notes"
         className="cardText">
+        <button onClick={LoadPrep} className="divButton">
         <div className="savedNote">
             <h3>{note.name}</h3>
             <p>{note.text}</p>
-        </div>
+            </div>
+        </button>
         </Link>
         )))}}
     return(

@@ -103,3 +103,9 @@ body{
     color: black;
     text-decoration: none;
 }
+
+.divButton{
+    background-color: rgb(41, 155, 207);
+    border: none;
+    outline: none;
+}

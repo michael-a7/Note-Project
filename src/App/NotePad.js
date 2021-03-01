@@ -9,6 +9,7 @@ export function NotePad(){
     const [fileName, myFile] = useState("")
     const [open, setWindow] = useState(false)
     const [saveArray, updateSave] = useState([])
+    
     useEffect(()=>{
         const saved = localStorage.getItem("Save List");
         if (saved){
@@ -19,6 +20,15 @@ export function NotePad(){
     function handleFileChange(event){
         myFile(event.target.value);
     }
+
+    useEffect(()=>{
+        const loadedText = localStorage.getItem("To Load");
+        if (loadedText){
+            setText(JSON.parse(loadedText))
+        }
+    },[])
+
+
     function handleChange(event){
         setText(event.target.value);
     }
