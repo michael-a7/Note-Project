@@ -3,6 +3,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 import Modal from 'react-modal';
+import Boxes from './Boxes'
 export function NotePad(){
     const [text,setText]=useState("")
     const [fileName, myFile] = useState("")

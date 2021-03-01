@@ -99,3 +99,7 @@ body{
     text-align: center;
     overflow: hidden;
 }
+.cardText{
+    color: black;
+    text-decoration: none;
+}
