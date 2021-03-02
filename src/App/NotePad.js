@@ -17,17 +17,17 @@ export function NotePad(){
         }
     },[])
     useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
+
+    useEffect(()=>{
+        const loadedText = localStorage.getItem("Text To Load");
+        if (loadedText){
+            setText(loadedText)
+        }
+    },"")
+
     function handleFileChange(event){
         myFile(event.target.value);
     }
-
-    useEffect(()=>{
-        const loadedText = localStorage.getItem("To Load");
-        if (loadedText){
-            setText(JSON.parse(loadedText))
-        }
-    },[])
-
 
     function handleChange(event){
         setText(event.target.value);
