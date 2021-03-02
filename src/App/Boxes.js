@@ -2,9 +2,6 @@ import {React,useState} from 'react';
 import {Link} from 'react-router-dom';
 function Boxes(){
     const saveData = JSON.parse(localStorage.getItem("Save List"))
-    function LoadPrep(){
-        console.log("Hi")
-    }
     function Conditional(){
         if(saveData===null){
             return(
@@ -17,12 +14,14 @@ function Boxes(){
         
         <Link to="/notes"
         className="cardText">
-        <button onClick={LoadPrep} className="divButton">
+        
         <div className="savedNote">
+        {/* Work in Progress, get text to display when click */}
+        <button onClick={localStorage.setItem("Text To Load", note.text)} className="divButton">
             <h3>{note.name}</h3>
             <p>{note.text}</p>
+            </button>
             </div>
-        </button>
         </Link>
         )))}}
     return(
