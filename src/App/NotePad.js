@@ -6,14 +6,14 @@ import Modal from 'react-modal';
 import Boxes from './Boxes'
 export function NotePad(){
     const [text,setText]=useState("")
-    const [fileName, myFile] = useState("")
-    const [open, setWindow] = useState(false)
-    const [saveArray, updateSave] = useState([])
+    const [fileName, setFileName] = useState("")
+    const [open, setOpen] = useState(false)
+    const [saveArray, setSaveArray] = useState([])
     
     useEffect(()=>{
         const saved = localStorage.getItem("Save List");
         if (saved){
-            updateSave(JSON.parse(saved))
+            setSaveArray(JSON.parse(saved))
         }
     },[])
     useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
@@ -26,9 +26,10 @@ export function NotePad(){
     },"")
     // While i still have "Text to Load", having a string as a second parameter allows the setText function to still work
     // if there is loaded text on the notepad. Without the string, I can't change the text.
+    //So fix "Text To Load" first
 
     function handleFileChange(event){
-        myFile(event.target.value);
+        setFileName(event.target.value);
     }
 
     function handleChange(event){
@@ -37,7 +38,7 @@ export function NotePad(){
     // Changes value of text in textbox
 
     function handleModal(event){
-        setWindow(!open);
+        setOpen(!open);
     }
    
     function handleSubmit(event){
@@ -57,7 +58,7 @@ export function NotePad(){
                     const id = new Date().valueOf()
                     const data = {name, text, id}
                     saveArray.push(data)
-                    setWindow(!open);
+                    setOpen(!open);
                     }
                 else{
                        //Case 3: No saved file with entered name; Create file
@@ -66,7 +67,7 @@ export function NotePad(){
                     const name = fileName
                     const data = {name, text, id}
                     saveArray.push(data)
-                    setWindow(!open);
+                    setOpen(!open);
                     }
             }    
             else{
@@ -76,7 +77,7 @@ export function NotePad(){
                 const name = fileName
                 const data = {name, text, id}
                 saveArray.push(data)
-                setWindow(!open);
+                setOpen(!open);
         }    
     }
     }
@@ -95,7 +96,7 @@ export function NotePad(){
             let file = array.find(({name})=>name == fileName)
         if(file){
             setText(file.text)
-            setWindow(false);
+            setOpen(false);
         }
         else{
             alert("File name does not exist!")
@@ -105,7 +106,7 @@ export function NotePad(){
 
 
     function wipeSave(event){
-        updateSave([])
+        setSaveArray([])
     }
     return(
         <div>        
