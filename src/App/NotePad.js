@@ -24,6 +24,8 @@ export function NotePad(){
             setText(loadedText)
         }
     },"")
+    // While i still have "Text to Load", having a string as a second parameter allows the setText function to still work
+    // if there is loaded text on the notepad. Without the string, I can't change the text.
 
     function handleFileChange(event){
         myFile(event.target.value);

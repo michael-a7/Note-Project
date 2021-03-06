@@ -16,11 +16,10 @@ function Boxes(){
         className="cardText">
         
         <div className="savedNote">
-        {/* Work in Progress, get text to display when click */}
-        <button onClick={localStorage.setItem("Text To Load", note.text)} className="divButton">
             <h3>{note.name}</h3>
             <p>{note.text}</p>
-            </button>
+            {/*Make onClick a function, use arrow function*/}
+            <button onClick={localStorage.setItem("Text To Load", note.text)} className="divButton"></button>
             </div>
         </Link>
         )))}}
