@@ -5,9 +5,9 @@ function Conditional() {
   const saveData = JSON.parse(localStorage.getItem("Save List"));
   const { id } = useParams();
   function Search(a) {
-    let file = saveData.find(({ id }) => id === a);
-    const identity = file.id;
-    console.log(identity);
+    let file = saveData.find(({ name }) => id === a);
+    const text = file.text;
+    console.log(text);
   }
   if (saveData === null) {
     return (
@@ -17,14 +17,18 @@ function Conditional() {
     );
   } else {
     return saveData.map((note) => (
-      <Link to="/notes" className="cardText">
+      <Link to={`/notes/${note.id}`} className="cardText">
         <div className="savedNote">
           <h3>{note.name}</h3>
           <p>{note.text}</p>
           {/*Make onClick a function, use arrow function*/}
-          {/*use the onclick function to call the unique ID*/}
           {/* Issue where arrow function won't respond*/}
-          <button className="divButton" onClick={Search(note.id)}></button>
+          <button
+            className="divButton"
+            onClick={() => {
+              Search(note.id);
+            }}
+          ></button>
         </div>
       </Link>
     ));
