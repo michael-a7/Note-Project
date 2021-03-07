@@ -1,7 +1,7 @@
 //Something is off about same save/load. Check tomorrow
 //Consider finding a way to delete the original file with a particular name from the list of saved 
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Modal from 'react-modal';
 import Boxes from './Boxes'
 export function NotePad(){
@@ -9,7 +9,7 @@ export function NotePad(){
     const [fileName, setFileName] = useState("")
     const [open, setOpen] = useState(false)
     const [saveArray, setSaveArray] = useState([])
-    
+    const {identify} = useParams()
     useEffect(()=>{
         const saved = localStorage.getItem("Save List");
         if (saved){
@@ -142,6 +142,7 @@ export function NotePad(){
 
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click3" onClick = {wipeSave}>Clear</button>
+                <h3>Yo {identify}</h3>
         </div>
     )
 }

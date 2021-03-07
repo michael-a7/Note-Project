@@ -2,7 +2,7 @@ import React from 'react'
 // eslint-disable-next-line
 import Stylesheet from './Styling'
 import Home from "./Home.js"
-import {Route} from "react-router-dom";
+import {Route, useParams} from "react-router-dom";
 import NotePad from "./NotePad";
 function App() {
     return(
@@ -13,7 +13,6 @@ function App() {
             <Route path="/notes">
                 <NotePad />
             </Route>
-            <Route exact path="/notes/:save" component={NotePad} />
         </div>
     )
 } 
