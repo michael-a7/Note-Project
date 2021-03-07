@@ -1,111 +1,110 @@
-
-textarea{
-    outline: none;
-    resize: none;
-    border: 5px black solid;
+textarea {
+  outline: none;
+  resize: none;
+  border: 5px black solid;
 }
-input{
-    width: 145px;
+input {
+  width: 145px;
 }
-.click1{
-    background-color: hotpink;
-    border-radius: 12px;
-    border: black 3px solid;
-    padding: 5px;
-    font-weight: bold;
-    color: white;
+.click1 {
+  background-color: hotpink;
+  border-radius: 12px;
+  border: black 3px solid;
+  padding: 5px;
+  font-weight: bold;
+  color: white;
 }
-.click2{
-    background-color: blue;
-    border-radius: 12px;
-    border: black 3px solid;
-    padding: 5px;
-    margin: 2px;
-    font-weight: bold;
-    color: white;
+.click2 {
+  background-color: blue;
+  border-radius: 12px;
+  border: black 3px solid;
+  padding: 5px;
+  margin: 2px;
+  font-weight: bold;
+  color: white;
 }
-.click3{
-    background-color: red;
-    border-radius: 12px;
-    border: black 3px solid;
-    padding: 5px;
-    margin: 2px;
-    font-weight: bold;
-    color: white;
+.click3 {
+  background-color: red;
+  border-radius: 12px;
+  border: black 3px solid;
+  padding: 5px;
+  margin: 2px;
+  font-weight: bold;
+  color: white;
 }
-body{
-    background-color: rgb(41, 155, 207);
+body {
+  background-color: rgb(41, 155, 207);
 }
-#head{
-    margin-bottom: 50px;
-    text-align: center;
-  }
-
-.buttonText{
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-.modal{
-    width: 180px;
-    height: 80px;
-    position: center;
-    margin: 300px;
-    border: black 5px solid;
-    outline: none;
-    background-color: rgb(104, 14, 122);
-}
-.modalContent{
-    margin-top: 15px;
-    margin-left: 15px
-}
-.newNote{
-    border: black 5px solid;
-    background-color: yellow;
-    margin: 2px;
-    width: 300px;
-    height: 150px;
-    text-align: center;
-    overflow: hidden;
-    cursor: pointer;
-}
-.newNoteText{
-    color: black;
-}
-.savedNote{
-    border: black 5px solid;
-    background-color: white;
-    margin: 2px;
-    width: 300px;
-    height: 150px;
-    text-align: center;
-    overflow: hidden;
-    cursor: pointer;
-}
-.displayNotes{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr
-}
-.noteHeader{
-    line-height: 0px;
-}
-.initialNote{
-    border: black 5px solid;
-    background-color: orange;
-    margin: 2px;
-    width: 300px;
-    height: 150px;
-    text-align: center;
-    overflow: hidden;
-}
-.cardText{
-    color: black;
-    text-decoration: none;
+#head {
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-.divButton{
-    background-color: rgb(41, 155, 207);
-    border: none;
-    outline: none;
+.buttonText {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+.modal {
+  width: 180px;
+  height: 80px;
+  position: center;
+  margin: 300px;
+  border: black 5px solid;
+  outline: none;
+  background-color: rgb(104, 14, 122);
+}
+.modalContent {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.newNote {
+  border: black 5px solid;
+  background-color: yellow;
+  margin: 2px;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.newNoteText {
+  color: black;
+}
+.savedNote {
+  border: black 5px solid;
+  background-color: white;
+  margin: 2px;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.displayNotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.noteHeader {
+  line-height: 0px;
+}
+.initialNote {
+  border: black 5px solid;
+  background-color: orange;
+  margin: 2px;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  overflow: hidden;
+}
+.cardText {
+  color: black;
+  text-decoration: none;
+}
+
+.divButton {
+  background-color: rgb(41, 155, 207);
+  border: none;
+  outline: none;
 }
