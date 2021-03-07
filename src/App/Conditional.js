@@ -18,7 +18,8 @@ function Conditional(){
             <h3>{note.name}</h3>
             <p>{note.text}</p>
             {/*Make onClick a function, use arrow function*/}
-            <button onClick={localStorage.setItem("Text To Load", note.text)} className="divButton"></button>
+            {/*use the onclick function to call the unique ID*/}
+            <button className="divButton"></button>
             </div>
         </Link>
         )))}}

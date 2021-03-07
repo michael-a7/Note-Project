@@ -18,12 +18,6 @@ export function NotePad(){
     },[])
     useEffect(()=>{localStorage.setItem("Save List", JSON.stringify(saveArray))});
 
-    useEffect(()=>{
-        const loadedText = localStorage.getItem("Text To Load");
-        if (loadedText){
-            setText(loadedText)
-        }
-    },"")
     // While i still have "Text to Load", having a string as a second parameter allows the setText function to still work
     // if there is loaded text on the notepad. Without the string, I can't change the text.
     //So fix "Text To Load" first
