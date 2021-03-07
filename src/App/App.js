@@ -7,8 +7,13 @@ import NotePad from "./NotePad";
 function App() {
     return(
         <div>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/notes" component={NotePad} />
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route path="/notes">
+                <NotePad />
+            </Route>
+            <Route exact path="/notes/:save" component={NotePad} />
         </div>
     )
 } 
