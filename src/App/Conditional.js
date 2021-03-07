@@ -2,6 +2,7 @@ import {React,useState} from 'react';
 import {Route, useParams, Link} from 'react-router-dom';
 function Conditional(){
         const saveData = JSON.parse(localStorage.getItem("Save List"))
+        const {id} = useParams()
         if(saveData===null){
             return(
                 <div className = "initialNote">
@@ -11,7 +12,7 @@ function Conditional(){
         } else{
         return(saveData.map(note=>(
         
-        <Link to="/notes"
+        <Link to="/notes/:id"
         className="cardText">
         
         <div className="savedNote">
