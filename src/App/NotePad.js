@@ -9,7 +9,7 @@ export function NotePad(){
     const [fileName, setFileName] = useState("")
     const [open, setOpen] = useState(false)
     const [saveArray, setSaveArray] = useState([])
-    const {identify} = useParams()
+    const {id} = useParams()
     useEffect(()=>{
         const saved = localStorage.getItem("Save List");
         if (saved){
@@ -142,7 +142,7 @@ export function NotePad(){
 
                 <button className="click2"><Link to="/" className="buttonText">Home</Link></button>
                 <button className="click3" onClick = {wipeSave}>Clear</button>
-                <h3>Yo {identify}</h3>
+                <h3>Yo {id}</h3>
         </div>
     )
 }
