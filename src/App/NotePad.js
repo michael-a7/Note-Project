@@ -6,14 +6,24 @@ import Modal from "react-modal";
 import Boxes from "./Boxes";
 export function NotePad() {
   const { id } = useParams();
-  console.log(id);
+
   const [text, setText] = useState("");
   const [fileName, setFileName] = useState("");
   const [open, setOpen] = useState(false);
   const [saveArray, setSaveArray] = useState([]);
-  if (id) {
-    console.log(id);
-  }
+  useEffect(() => {
+    const array = JSON.parse(localStorage.getItem("Save List"));
+    const Identify = id;
+    if (array) {
+      let file = array.find(({ id }) => id == Identify);
+      if (file === undefined) {
+        console.log("empty");
+      } else {
+        setText(file.text);
+        setFileName(file.name);
+      }
+    }
+  }, []);
   useEffect(() => {
     const saved = localStorage.getItem("Save List");
     if (saved) {
