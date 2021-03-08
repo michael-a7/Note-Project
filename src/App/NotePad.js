@@ -109,7 +109,7 @@ export function NotePad() {
   }
 
   function wipeSave(event) {
-    setSaveArray([]);
+    setText("");
   }
   return (
     <div>
@@ -155,9 +155,11 @@ export function NotePad() {
           Home
         </Link>
       </button>
-      <button className="click3" onClick={wipeSave}>
-        Clear
-      </button>
+      <div>
+        <button className="click3" onClick={wipeSave}>
+          Clear Text
+        </button>
+      </div>
     </div>
   );
 }
