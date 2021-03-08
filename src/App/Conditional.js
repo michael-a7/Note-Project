@@ -5,7 +5,7 @@ function Conditional() {
   const saveData = JSON.parse(localStorage.getItem("Save List"));
   const { id } = useParams();
   function Search(a) {
-    let file = saveData.find(({ name }) => id === a);
+    let file = saveData.find(({ id }) => id === a);
     const text = file.text;
     console.log(text);
   }

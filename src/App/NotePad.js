@@ -1,14 +1,19 @@
 //Something is off about same save/load. Check tomorrow
 //Consider finding a way to delete the original file with a particular name from the list of saved
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
 import Boxes from "./Boxes";
 export function NotePad() {
+  const { id } = useParams();
+  console.log(id);
   const [text, setText] = useState("");
   const [fileName, setFileName] = useState("");
   const [open, setOpen] = useState(false);
   const [saveArray, setSaveArray] = useState([]);
+  if (id) {
+    console.log(id);
+  }
   useEffect(() => {
     const saved = localStorage.getItem("Save List");
     if (saved) {

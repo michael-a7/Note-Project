@@ -14,21 +14,9 @@ function App() {
       <Route exact path="/notes">
         <NotePad />
       </Route>
-      <Route exact path="/notes/id">
-        <NotePad />
-      </Route>
       <Switch>
-        <Route path="/notes/:id" children={<Identity />} />
+        <Route path="/notes/:id" children={<NotePad />} />
       </Switch>
-    </div>
-  );
-}
-function Identity() {
-  let { id } = useParams();
-  return (
-    <div>
-      <NotePad />
-      <p>This is {id}</p>
     </div>
   );
 }
