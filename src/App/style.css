@@ -70,6 +70,16 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+.delete {
+  border: black 5px solid;
+  background-color: red;
+  margin: 2px;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}
 .newNoteText {
   color: black;
 }
