@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Conditional from "./Conditional";
 import Modal from "react-modal";
 function Boxes() {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <div className="displayNotes">
@@ -12,9 +13,6 @@ function Boxes() {
           </div>
         </Link>
         <Conditional />
-        <div className="delete">
-          <h3 style={{ color: "black" }}>Delete</h3>
-        </div>
       </div>
     </div>
   );

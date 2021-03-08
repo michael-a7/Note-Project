@@ -6,7 +6,6 @@ import Modal from "react-modal";
 import Boxes from "./Boxes";
 export function NotePad() {
   const { id } = useParams();
-
   const [text, setText] = useState("");
   const [fileName, setFileName] = useState("");
   const [open, setOpen] = useState(false);
