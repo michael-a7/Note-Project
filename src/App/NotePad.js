@@ -1,5 +1,3 @@
-//Something is off about same save/load. Check tomorrow
-//Consider finding a way to delete the original file with a particular name from the list of saved
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
@@ -32,10 +30,6 @@ export function NotePad() {
   useEffect(() => {
     localStorage.setItem("Save List", JSON.stringify(saveArray));
   });
-
-  // While i still have "Text to Load", having a string as a second parameter allows the setText function to still work
-  // if there is loaded text on the notepad. Without the string, I can't change the text.
-  //So fix "Text To Load" first
 
   function handleFileChange(event) {
     setFileName(event.target.value);
@@ -88,7 +82,6 @@ export function NotePad() {
     }
   }
   // Saves objects of name, text, and id to an array in localstorage
-  // Currently also saves File name/text pairs as their own object items in local storage
   // Creates an alert for empty save names
 
   function handleLoading(event) {
