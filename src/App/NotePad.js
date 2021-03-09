@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
 import Boxes from "./Boxes";
+import { set } from "local-storage";
 export function NotePad() {
   const { id } = useParams();
   const [text, setText] = useState("");
+  const [modalNotif, setModalNotif] = useState("");
   const [fileName, setFileName] = useState("");
   const [open, setOpen] = useState(false);
   const [saveArray, setSaveArray] = useState([]);
@@ -42,10 +44,11 @@ export function NotePad() {
 
   function handleModal(event) {
     setOpen(!open);
+    setModalNotif("");
   }
   function deleteNote(event) {
     if (fileName === "") {
-      alert("Please enter valid file name!");
+      setModalNotif("Please enter valid file name!");
     } else {
       const array = JSON.parse(localStorage.getItem("Save List"));
       if (array) {
@@ -53,9 +56,10 @@ export function NotePad() {
         if (newArray) {
           console.log(newArray);
           setSaveArray(newArray);
+          setModalNotif("Note was deleted.");
         }
       } else {
-        alert("Please enter valid file name!");
+        setModalNotif("Please enter valid file name!");
       }
     }
   }
@@ -63,7 +67,7 @@ export function NotePad() {
     if (fileName === "") {
       //Case 1: Empty file name
       //Works
-      alert("Please enter valid file name!");
+      setModalNotif("Please enter valid file name!");
     } else {
       const array = JSON.parse(localStorage.getItem("Save List"));
       if (array) {
@@ -103,14 +107,15 @@ export function NotePad() {
     ///Load Error if there's no SaveArray
     const array = JSON.parse(localStorage.getItem("Save List"));
     if (array === null) {
-      alert("File name does not exist!");
+      setModalNotif("File name does not exist!");
     } else {
       let file = array.find(({ name }) => name == fileName);
       if (file) {
         setText(file.text);
         setOpen(false);
+        setModalNotif("");
       } else {
-        alert("File name does not exist!");
+        setModalNotif("File name does not exist!");
       }
     }
   }
@@ -137,7 +142,6 @@ export function NotePad() {
       {/* Opens Modal */}
       <Modal isOpen={open} onRequestClose={handleModal} className="modal">
         <div className="modalContent">
-          <div className="Saves">Hi</div>
           <form>
             <input
               type="text"
@@ -159,18 +163,17 @@ export function NotePad() {
           <button className="click3" onClick={deleteNote}>
             Delete
           </button>
+          <p1 className="modalNotif">{modalNotif}</p1>
         </div>
       </Modal>
       <button className="click2">
         <Link to="/" className="buttonText">
-          Home
+          Home Page
         </Link>
       </button>
-      <div>
-        <button className="click3" onClick={wipeSave}>
-          Clear Text
-        </button>
-      </div>
+      <button className="click3" onClick={wipeSave}>
+        Clear Text
+      </button>
     </div>
   );
 }

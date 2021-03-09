@@ -23,13 +23,13 @@ input {
   font-weight: bold;
   color: white;
 }
+
 .click3 {
   background-color: red;
   border-radius: 12px;
   border: black 3px solid;
   padding: 5px;
   margin: 2px;
-  margin-top: 30px;
   font-weight: bold;
   color: white;
 }
@@ -47,19 +47,13 @@ body {
   font-weight: bold;
 }
 .modal {
-  width: 280px;
-  height: 180px;
+  width: 240px;
+  height: 100px;
   position: center;
   margin: 300px;
   border: black 5px solid;
   outline: none;
   background-color: rgb(104, 14, 122);
-}
-.Saves {
-  background-color: white;
-  width: 250px;
-  height: 90px;
-  border: 2px black solid;
 }
 .modalContent {
   margin-top: 15px;
@@ -117,7 +111,12 @@ body {
 }
 
 .text {
-  margin-top: 5px;
+  margin-left: 2px;
   width: 200px;
   border: 2px black solid;
+}
+.modalNotif {
+  margin-left: 25px;
+  font-weight: bold;
+  color: white;
 }
