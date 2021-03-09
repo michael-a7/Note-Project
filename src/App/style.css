@@ -59,6 +59,7 @@ body {
   background-color: white;
   width: 250px;
   height: 90px;
+  border: 2px black solid;
 }
 .modalContent {
   margin-top: 15px;
@@ -72,17 +73,6 @@ body {
   height: 160px;
   text-align: center;
   overflow: hidden;
-  cursor: pointer;
-  outline: none;
-}
-.delete {
-  border: black 5px solid;
-  background-color: red;
-  margin: 2px;
-  width: 310px;
-  height: 160px;
-  text-align: center;
-  overflow: auto;
   cursor: pointer;
   outline: none;
 }
@@ -124,4 +114,10 @@ body {
   background-color: rgb(41, 155, 207);
   border: none;
   outline: none;
+}
+
+.text {
+  margin-top: 5px;
+  width: 200px;
+  border: 2px black solid;
 }

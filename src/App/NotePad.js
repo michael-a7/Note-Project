@@ -144,6 +144,7 @@ export function NotePad() {
               placeholder="File Name"
               value={fileName}
               onChange={handleFileChange}
+              className="text"
             />
           </form>
           <button className="click2" onClick={handleSubmit}>
