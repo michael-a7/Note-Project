@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
 // eslint-disable-next-line
-import Stylesheet from './Styling'
-import Home from "./Home.js"
-import {Route} from "react-router-dom";
+import Stylesheet from "./Styling";
+import Home from "./Home.js";
+import { Route, useParams, Switch } from "react-router-dom";
 import NotePad from "./NotePad";
 function App() {
-    return(
-        <div>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/notes" component={NotePad} />
-        </div>
-    )
-} 
-
-export default App
+  const data = localStorage.getItem("Save List");
+  return (
+    <div>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/notes">
+        <NotePad />
+      </Route>
+      <Switch>
+        <Route path="/notes/:id" children={<NotePad />} />
+      </Switch>
+    </div>
+  );
+}
+export default App;

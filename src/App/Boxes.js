@@ -1,41 +1,63 @@
-import {React,useState} from 'react';
-import {Link} from 'react-router-dom';
-function Boxes(){
-    const saveData = JSON.parse(localStorage.getItem("Save List"))
-    function Conditional(){
-        if(saveData===null){
-            return(
-                <div className = "initialNote">
-                    <h3>Saved notes are displayed here</h3>
-                </div>
-            )
-        } else{
-        return(saveData.map(note=>(
-        
-        <Link to="/notes"
-        className="cardText">
-        
-        <div className="savedNote">
-            <h3>{note.name}</h3>
-            <p>{note.text}</p>
-            {/*Make onClick a function, use arrow function*/}
-            <button onClick={localStorage.setItem("Text To Load", note.text)} className="divButton"></button>
-            </div>
+import { React, useState } from "react";
+import { Link } from "react-router-dom";
+import Conditional from "./Conditional";
+import Modal from "react-modal";
+function Boxes() {
+  const [fileName, setFileName] = useState("");
+  const [open, setOpen] = useState(false);
+  function handleFileChange(event) {
+    setFileName(event.target.value);
+  }
+  function handleModal() {
+    setOpen(!open);
+  }
+  function deleteFile() {
+    const array = JSON.parse(localStorage.getItem("Save List"));
+    if (array === null) {
+      alert("File name does not exist!");
+    } else {
+      const file = array.find(({ name }) => name == fileName);
+      if (file) {
+        array.splice(file);
+        console.log(array);
+      } else {
+        alert("File name does not exist!");
+      }
+    }
+  }
+  function Test() {
+    alert("Testing");
+  }
+  return (
+    <div>
+      <div className="displayNotes">
+        <Link to="/notes" className="buttonText">
+          <button className="newNote">
+            <h3 style={{ color: "black" }}>New Note</h3>
+          </button>
         </Link>
-        )))}}
-    return(
-        <div>
-            <div className="displayNotes">
-                <Link to="/notes"
-                className = "buttonText"
-                >
-                    <div className = "newNote">
-                        <h3 style={{color:"black"}}>New Note</h3>
-                    </div>
-                </Link>
-                <Conditional />
-            </div>
-        </div>
-    )
+        <Conditional />
+        <button className="delete" onClick={handleModal}>
+          <h3 style={{ color: "black" }}>Delete Note</h3>
+        </button>
+        <Modal isOpen={open} onRequestClose={handleModal} className="modal">
+          <form>
+            <input
+              type="text"
+              placeholder="File Name"
+              value={fileName}
+              onChange={handleFileChange}
+            />
+          </form>
+          <button className="click3" onClick={deleteFile}>
+            Delete
+          </button>
+          <button className="click2" onClick={handleModal}>
+            Close
+          </button>
+        </Modal>
+      </div>
+    </div>
+  );
 }
-export default Boxes
+export default Boxes;
