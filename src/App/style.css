@@ -47,13 +47,18 @@ body {
   font-weight: bold;
 }
 .modal {
-  width: 180px;
-  height: 80px;
+  width: 280px;
+  height: 180px;
   position: center;
   margin: 300px;
   border: black 5px solid;
   outline: none;
   background-color: rgb(104, 14, 122);
+}
+.Saves {
+  background-color: white;
+  width: 250px;
+  height: 90px;
 }
 .modalContent {
   margin-top: 15px;
@@ -77,7 +82,7 @@ body {
   width: 310px;
   height: 160px;
   text-align: center;
-  overflow: hidden;
+  overflow: auto;
   cursor: pointer;
   outline: none;
 }

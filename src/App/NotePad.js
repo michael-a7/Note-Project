@@ -43,7 +43,22 @@ export function NotePad() {
   function handleModal(event) {
     setOpen(!open);
   }
-
+  function deleteNote(event) {
+    if (fileName === "") {
+      alert("Please enter valid file name!");
+    } else {
+      const array = JSON.parse(localStorage.getItem("Save List"));
+      if (array) {
+        const newArray = array.filter(({ name }) => name !== fileName);
+        if (newArray) {
+          console.log(newArray);
+          setSaveArray(newArray);
+        }
+      } else {
+        alert("Please enter valid file name!");
+      }
+    }
+  }
   function handleSubmit(event) {
     if (fileName === "") {
       //Case 1: Empty file name
@@ -122,6 +137,7 @@ export function NotePad() {
       {/* Opens Modal */}
       <Modal isOpen={open} onRequestClose={handleModal} className="modal">
         <div className="modalContent">
+          <div className="Saves">Hi</div>
           <form>
             <input
               type="text"
@@ -138,6 +154,9 @@ export function NotePad() {
           </button>
           <button className="click2" onClick={handleModal}>
             Close
+          </button>
+          <button className="click3" onClick={deleteNote}>
+            Delete
           </button>
         </div>
       </Modal>
