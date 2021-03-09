@@ -141,7 +141,6 @@ export function NotePad() {
             Save
           </button>
           <button className="click1" onClick={handleLoading}>
-            {" "}
             Load
           </button>
           <button className="click2" onClick={handleModal}>

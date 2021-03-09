@@ -42,10 +42,9 @@ body {
 }
 
 .buttonText {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bold;
-  color: white;
 }
 .modal {
   width: 180px;
@@ -64,21 +63,23 @@ body {
   border: black 5px solid;
   background-color: yellow;
   margin: 2px;
-  width: 300px;
-  height: 150px;
+  width: 310px;
+  height: 160px;
   text-align: center;
   overflow: hidden;
   cursor: pointer;
+  outline: none;
 }
 .delete {
   border: black 5px solid;
   background-color: red;
   margin: 2px;
-  width: 300px;
-  height: 150px;
+  width: 310px;
+  height: 160px;
   text-align: center;
   overflow: hidden;
   cursor: pointer;
+  outline: none;
 }
 .newNoteText {
   color: black;
