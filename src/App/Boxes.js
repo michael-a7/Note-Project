@@ -25,9 +25,6 @@ function Boxes() {
       }
     }
   }
-  function Test() {
-    alert("Testing");
-  }
   return (
     <div>
       <div className="displayNotes">
